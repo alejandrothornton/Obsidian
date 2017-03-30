@@ -75,6 +75,7 @@ exports.modify = function(req, res) {
 
       // return a message
       res.json({ message: 'Character updated!' });
+      console.log("Character updated!");
     });
   });
 };

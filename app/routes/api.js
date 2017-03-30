@@ -2,9 +2,11 @@
 
 //initializing variables
 var Character = require('../models/character');
+var Attribute = require('../models/attribute');
 
 //Route subfiles (if applicable)
 var charRoutes = require('./charRoutes');
+var attrRoutes = require('./attribRoutes');
 
 //ROUTES
 module.exports = function(app, express) {
@@ -21,7 +23,7 @@ module.exports = function(app, express) {
     res.json({ message: 'Very stronk.'});
   });
 
-  //ROUTING FOR THE 'HOME' SCREEN
+  //CHARACTER ROUTING
   apiRouter.route('/characters')
 
     //Creating a new character
@@ -40,6 +42,21 @@ module.exports = function(app, express) {
 
 		//delete the character with this id
 		.delete(charRoutes.expunge);
+
+  //ATTRIBUTE ROUTING
+  apiRouter.route('/attributes')
+
+    .post(attrRoutes.create)
+
+    .get(attrRoutes.list);
+
+  apiRouter.route('/attributes/:attr_id')
+
+    .get(attrRoutes.retrieve)
+
+    .put(attrRoutes.modify)
+
+    .delete(attrRoutes.expunge);
 
   return apiRouter;
 };

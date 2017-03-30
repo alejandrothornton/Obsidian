@@ -1,5 +1,7 @@
 angular.module('obsidian', [
 	'app.route',
 	'charCtrl',
-	'charService'
+	'charService',
+	'attrCtrl',
+	'attrService'
 ]);

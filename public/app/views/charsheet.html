@@ -1,0 +1,146 @@
+<html>
+    <head>
+     <meta charset="UTF-8">
+      <title>Character Sheet</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="/public/app/views/charsheet.css">
+       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+<!--       <script language="JavaScript" type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script> -->
+<!--       <script language="JavaScript" type="text/javascript" src="../ObsidianCode/charSheetInfo.js"></script> -->
+    </head>
+    <body>
+       <div id="header" class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <i class="icon-reorder"></i>
+        </button>
+        <a class="navbar-brand" href="#" ng-click="sheet.saveCharacter()">
+            Save
+        </a>
+      <a class="navbar-brand" href="/">
+            Return To Character Selection
+        </a>
+    </div>
+
+</div>
+<div id="wrapper">
+  <div id="sidebar-wrapper" class="col-md-2">
+            <div id="sidebar">
+                <ul class="nav list-group">
+                    <li>
+                      <a class="list-group-item" href="/{{ sheet.charData.data._id }}/attributes"><i class="icon-home icon-1x"></i>Ability Scores/Skills</a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Description</a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Properties</a>
+                    </li>
+                  <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Traits</a>
+                    </li>
+                  <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Class Features</a>
+                    </li>
+                  <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Actions</a>
+                    </li>
+                  <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Spells</a>
+                    </li>
+                  <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Reactions</a>
+                    </li>
+                  <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Legendary Actions</a>
+                    </li>
+                  <li>
+                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Lair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="main-wrapper" class="col-md-10 pull-right">
+            <div id="main">
+              <div class="page-header">
+                <h3>{{ sheet.charData.data.name }}</h3>
+              </div>
+              <table class="table">
+				<thead>
+                  <tr>
+                    <th>Ability Score
+                    </th>
+                    <th>Score
+                    </th>
+                    <th>Modifier
+                    </th>
+                  </tr>
+                </thead>
+				<tbody>
+                  <tr>
+                    <td>Str:</td>
+                    <td> {{ sheet.charData.data.str}}</td>
+                    <td> {{ sheet.charData.data.strmod }}</td>
+                  </tr>
+                  <tr>
+                    <td>Dex:</td>
+                    <td> {{ sheet.charData.data.dex}}</td>
+                    <td> {{ sheet.charData.data.dexmod }}</td>
+                  </tr>
+                  <tr>
+                    <td>Con:</td>
+                    <td> {{ sheet.charData.data.con}}</td>
+                    <td> {{ sheet.charData.data.conmod }}</td>
+                  </tr>
+                  <tr>
+                    <td>Int:</td>
+                    <td> {{ sheet.charData.data.int}}</td>
+                    <td> {{ sheet.charData.data.intmod }}</td>
+                  </tr>
+                  <tr>
+                    <td>Wis:</td>
+                    <td> {{ sheet.charData.data.wis}}</td>
+                    <td> {{ sheet.charData.data.wismod }}</td>
+                  </tr>
+                  <tr>
+                    <td>Cha:</td>
+                    <td> {{ sheet.charData.data.cha}}</td>
+                    <td> {{ sheet.charData.data.chamod }}</td>
+                  </tr>
+                </tbody>
+			</table>
+              <table class="table">
+				<thead>
+                  <tr>
+                    <th>Saving Throws
+                    </th>
+                  </tr>
+                </thead>
+				<tbody>
+                  <tr>
+                    <td>Skills:</td>
+                  </tr>
+                  <tr>
+                    <td>Immunities</td>
+                  </tr>
+                  <tr>
+                    <td>Senses:</td>
+                  </tr>
+                  <tr>
+                    <td>Languages</td>
+                  </tr>
+                  <tr>
+                    <td>Challenge:</td>
+                  </tr>
+                </tbody>
+			</table>
+
+           <!-- ng-reapeat stuff should go here-->
+
+            </div>
+        </div>
+</div>
+
+
+    </body>
+</html>
