@@ -23,10 +23,4 @@ var CharacterSchema = new Schema({
   chamod: Number
 });
 
-//CONSTANTS FOR CHARACTER VALUES
-CharacterSchema.DEFAULT_SCORE = 10;
-CharacterSchema.DEFAULT_MOD = 0;
-CharacterSchema.DEFAULT_NAME = "[Name]";
-CharacterSchema.DEFAULT_SIZE = "[Size]";
-CharacterSchema.DEFAULT_RACE = "[Race]";
-CharacterSchema.DEFAULT_ALIGNMENT = "[Alignment]";
+module.exports = mongoose.model('Character', CharacterSchema);

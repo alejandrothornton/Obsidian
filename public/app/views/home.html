@@ -1,0 +1,29 @@
+
+<body>
+		<h1>
+			<a href="/characters/create" class="btn btn-default">
+				New Character
+			</a>
+		</h1>
+
+	<table class="table table-bordered table-striped" ng-show="char.characters">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Race</th>
+				<th>Alignment</th>
+				<th class="col-sm-2"></th>
+			<tr>
+		</thead>
+		<tbody>
+
+		<!-- LOOP OVER THE CHARACTERS -->
+		<tr ng-repeat="sheet in char.characters.data">
+			<td>{{ sheet.name }}</td>
+			<td>{{ sheet.race }}</td>
+			<td>{{ sheet.alignment }}</td>
+		</tr>
+
+		</tbody>
+	</table>
+</body>

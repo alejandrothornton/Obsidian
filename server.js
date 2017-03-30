@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 //configure app to handle CORS requests
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Methods', 'GET', 'POST');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With', 'content-type');
   next();
 });
@@ -31,16 +31,16 @@ mongoose.connect(config.database);
 
 //set static files location
 //used for requests that our frontend will make
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 
 //ROUTES FOR THE API
 //COMPLETE ROUTES ON RELEVANT FILE
-//var apiRoutes = require('./app/routes/api')(app, express);
-//app.use('/api', apiRoutes);
+var apiRoutes = require('./app/routes/api')(app, express);
+app.use('/api', apiRoutes);
 
 //MAIN CATCHALL ROUTE - SEND USERS TO FRONTEND
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/app/index.html'));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.listen(config.port);
