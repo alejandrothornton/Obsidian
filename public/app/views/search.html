@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Search Page</title>
-        <link rel="stylesheet" href="search.css">
+        <link rel="stylesheet" href="/public/app/views/search.css">
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     </head>
     <body>
@@ -10,7 +10,7 @@
   <div class="container">
     <div class="navbar-header">
       </button>
-      <a class="navbar-brand" href="#">Back To Character Sheet</a>
+      <a class="navbar-brand" href="/{{ sheet.charData.data._id }}">Back To Character Sheet</a>
     </div>
   </div>
 </div>
@@ -25,7 +25,7 @@
   </div>
 </div>
 
-<div class="container" ng-app="myApp" ng-controller="Main">
+<div class="container" ng-controller="attrController as attr">
   <div class="text-center">
       <h4>Actions</h4>
   </div>
@@ -36,11 +36,11 @@
     </div>
   </form>
   <ul class="list-unstyled">
-      <li data-ng-repeat="item in data track by $index">
-      <label class="customLabel" id="{{item.id}}"><a href="" ng-click="setSelectedItem($index)" data-toggle="modal" data-target="#detailsModal">{{item.title}} - {{item.desc}}</a></label>
+      <li ng-repeat="item in attr.attributes.data">
+      <label class="customLabel" id="{{item._id}}"><a href="" data-toggle="modal" data-target="#detailsModal">{{item.name}} - {{item.description}}</a></label>
       <div class="pull-right actions">
-        <a href="" class="select-choice" data-toggle="modal" data-target="#deleteModal" ng-click="setSelectedItem($index)">Select</a>
-        <a href="" class="edit-choice" data-toggle="modal" data-target="#deleteModal" ng-click="setSelectedItem($index)">Edit</a>
+        <a href="" class="select-choice" data-toggle="modal" data-target="#deleteModal">Select</a>
+        <a href="" class="edit-choice" data-toggle="modal" data-target="#deleteModal">Edit</a>
       </div>
     </li>
   </ul>

@@ -1,6 +1,6 @@
 angular.module('attrCtrl', ['attrService'])
 
-  .controller('attrController', function(Attribute) {
+  .controller('attrController', function($routeParams, Attribute) {
 
     var vm = this;
 
@@ -8,6 +8,7 @@ angular.module('attrCtrl', ['attrService'])
       .then(function(data) {
 
         vm.attributes = data;
+        console.log(vm.attributes);
 
       })
       .catch(function(data) {
@@ -54,3 +55,19 @@ angular.module('attrCtrl', ['attrService'])
 
 
   });
+
+  // .controller('actController', function(Attribute) {
+  //   var vm = this;
+  //
+  //   vm.type = 'action';
+  //
+  //   Attribute.getlist()
+  //   .then(function(data) {
+  //
+  //     vm.attributes = data;
+  //
+  //   })
+  //   .catch(function(data) {
+  //     vm.error = data.message;
+  //   });
+  // });

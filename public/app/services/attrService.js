@@ -17,6 +17,11 @@ angular.module('attrService', [])
     return $http.get('/api/attributes/');
   };
 
+  //get a list of attributes of the given type
+  attrFactory.getlist = function(type) {
+    return $http.get('/api/attributes/list/' + type)
+  };
+
   //create a attribute
   attrFactory.create = function(attrData) {
     return $http.post('/api/attributes/', attrData);

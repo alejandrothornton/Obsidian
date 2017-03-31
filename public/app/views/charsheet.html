@@ -31,31 +31,31 @@
                       <a class="list-group-item" href="/{{ sheet.charData.data._id }}/attributes"><i class="icon-home icon-1x"></i>Ability Scores/Skills</a>
                     </li>
                     <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Description</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/description"><i class="icon-home icon-1x"></i>Description</a>
                     </li>
                     <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Properties</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/properties"><i class="icon-home icon-1x"></i>Properties</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Traits</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/traits"><i class="icon-home icon-1x"></i>Traits</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Class Features</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/class"><i class="icon-home icon-1x"></i>Class Features</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Actions</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/actions"><i class="icon-home icon-1x"></i>Actions</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Spells</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/spells"><i class="icon-home icon-1x"></i>Spells</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Reactions</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}//reactions"><i class="icon-home icon-1x"></i>Reactions</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Legendary Actions</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/legactions"><i class="icon-home icon-1x"></i>Legendary Actions</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Lair</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}//lair"><i class="icon-home icon-1x"></i>Lair</a>
                     </li>
                 </ul>
             </div>
@@ -64,6 +64,7 @@
             <div id="main">
               <div class="page-header">
                 <h3>{{ sheet.charData.data.name }}</h3>
+                {{ sheet.charData.data.size }} {{ sheet.charData.data.race }} - {{ sheet.charData.data.alignment }}
               </div>
               <table class="table">
 				<thead>
@@ -121,13 +122,13 @@
                     <td>Skills:</td>
                   </tr>
                   <tr>
-                    <td>Immunities</td>
+                    <td>Immunities:</td>
                   </tr>
                   <tr>
                     <td>Senses:</td>
                   </tr>
                   <tr>
-                    <td>Languages</td>
+                    <td>Languages:</td>
                   </tr>
                   <tr>
                     <td>Challenge:</td>

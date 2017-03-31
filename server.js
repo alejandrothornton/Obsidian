@@ -8,7 +8,6 @@ var morgan      = require('morgan'); //used to see requests
 var mongoose    = require('mongoose');
 var config      = require('./config');
 var path        = require('path');
-var port        = process.env.PORT || 8080;
 
 //APP CONFIGURATION
 //use body parser to grab information from POST requests

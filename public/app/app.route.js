@@ -18,6 +18,18 @@ angular.module('app.route', ['ngRoute'])
       templateUrl : 'public/app/views/attributes.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
+    })
+
+    .when('/:char_id/description', {
+      templateUrl : 'public/app/views/description.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
+    })
+
+    .when('/:char_id/actions', {
+      templateUrl : 'public/app/views/search.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
     });
 
   $locationProvider.html5Mode(true);
