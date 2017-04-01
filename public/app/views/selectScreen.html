@@ -3,54 +3,45 @@
         <meta charset="UTF-8">
       <title>Select Screen</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="/public/app/views/selectScreen.css">
-       <script src="node_modules/bootstrap/js/carousel.js"></script>
+       <link rel="stylesheet" href="selectScreen.css">
+       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+       <script language="JavaScript" type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+       <script language="JavaScript" type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+       <script language="JavaScript" type="text/javascript" src="node_modules/bootstrap/js/carousel.js"></script>
     </head>
     <body>
-
       <div class="navbar-wrapper">
         <div class="container">
           <div class="navbar navbar-inverse navbar-static-top">
-
-              <div class="navbar-header">
-              <a class="navbar-brand" href="/">Obsidian</a>
+              <div class="navbar-header pull-left">
+                <a class="navbar-brand pull-left" href="/">Obsidian</a>
+              </div>
+              <div class="navbar-header pull-right">
+                <a class="navbar-brand pull-right" href="/">+Create New Character Sheet</a>
               </div>
           </div>
         </div><!-- /container -->
       </div><!-- /navbar wrapper -->
-
-        <!-- Carousel
-        ================================================== -->
-      <div class="container" ng-show="char.characters">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators" ng-repeat="sheet in char.characters.data">
-            <li data-target="#myCarousel" data-slide-to="$index" ng-class="{'active': $index == 0}"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox" ng-repeat="sheet in char.characters.data">
-            <div class="item" ng-class="{'active': $index == 0}">
-                <div class="carousel-caption">
-                  <h1>{{ sheet.name }}</h1>
-                    <p><font size="3">{{ sheet.race }}</font></p>
-                    <p><font size="3">{{ sheet.alignment }}</font></p>
-                  <p><a class="btn btn-lg btn-primary" href="/{{ sheet._id }}">Select</a></p>
-                </div>
-            </div>
-          </div>
-          <!-- Controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="icon-prev"></span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="icon-next"></span>
-          </a>
-        </div>
-      </div>
-        <!-- /.carousel -->
-        <div style="text-align:center;">
-            <div class="btn-group">
-              <button class="btn">+Create New Sheet</button>
-            </div>
-        </div>
+       
+        <h3 class="notifier">Character Select</h3>
+        <table class="table" style="width:1140px;">
+            <thead>
+                <tr>
+                    <th>Character</th>
+                    <th>Race</th>
+                    <th>Alignment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Barbara</th>
+                    <th>Amazonian</th>
+                    <th>Horde</th>
+                    <th>
+                        <a class="btn btn-lg btn-primary" href="/{{ sheet._id }}">Select</a>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>
