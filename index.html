@@ -5,12 +5,15 @@
 
     <base href="/">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
     <!-- JS -->
     <!-- Loading source code -->
     <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/angular/angular.min.js"></script>
-    <script src="/node_modules/angular-route/angular-route.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-route/angular-route.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- loading controllers -->
     <script src="public/app/services/charService.js"></script>
@@ -25,10 +28,7 @@
   	<script src="public/app/app.js"></script>
   </head>
   <body ng-app="obsidian" ng-controller="charController as char">
-
-    <main class="container">
       <div ng-view></div>
-    </main>
   </body>
 
 </html>

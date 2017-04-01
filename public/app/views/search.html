@@ -2,14 +2,12 @@
     <head>
         <title>Search Page</title>
         <link rel="stylesheet" href="/public/app/views/search.css">
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     </head>
     <body>
        <div class="container-fluid">
         <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      </button>
       <a class="navbar-brand" href="/{{ sheet.charData.data._id }}">Back To Character Sheet</a>
     </div>
   </div>
@@ -36,7 +34,7 @@
     </div>
   </form>
   <ul class="list-unstyled">
-      <li ng-repeat="item in attr.attributes.data">
+      <li ng-repeat="item in attr.attributes.data | filter: {type: action}:true | orderBy: 'name' ">
       <label class="customLabel" id="{{item._id}}"><a href="" data-toggle="modal" data-target="#detailsModal">{{item.name}} - {{item.description}}</a></label>
       <div class="pull-right actions">
         <a href="" class="select-choice" data-toggle="modal" data-target="#deleteModal">Select</a>
@@ -45,7 +43,7 @@
     </li>
   </ul>
 
-  <div id="detailsModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div id="detailsModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="attrController as attr">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">

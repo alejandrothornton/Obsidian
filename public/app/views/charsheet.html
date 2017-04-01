@@ -4,9 +4,6 @@
       <title>Character Sheet</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" href="/public/app/views/charsheet.css">
-       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-<!--       <script language="JavaScript" type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script> -->
-<!--       <script language="JavaScript" type="text/javascript" src="../ObsidianCode/charSheetInfo.js"></script> -->
     </head>
     <body>
        <div id="header" class="navbar navbar-default navbar-fixed-top">
@@ -24,7 +21,7 @@
 
 </div>
 <div id="wrapper">
-  <div id="sidebar-wrapper" class="col-md-2">
+  <div id="sidebar-wrapper" class="col-md-3">
             <div id="sidebar">
                 <ul class="nav list-group">
                     <li>
@@ -49,7 +46,7 @@
                         <a class="list-group-item" href="/{{ sheet.charData.data._id }}/spells"><i class="icon-home icon-1x"></i>Spells</a>
                     </li>
                   <li>
-                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}//reactions"><i class="icon-home icon-1x"></i>Reactions</a>
+                        <a class="list-group-item" href="/{{ sheet.charData.data._id }}/reactions"><i class="icon-home icon-1x"></i>Reactions</a>
                     </li>
                   <li>
                         <a class="list-group-item" href="/{{ sheet.charData.data._id }}/legactions"><i class="icon-home icon-1x"></i>Legendary Actions</a>
@@ -60,7 +57,7 @@
                 </ul>
             </div>
         </div>
-        <div id="main-wrapper" class="col-md-10 pull-right">
+        <div id="main-wrapper" class="col-md-9 pull-right">
             <div id="main">
               <div class="page-header">
                 <h3>{{ sheet.charData.data.name }}</h3>

@@ -2,20 +2,17 @@
     <head>
       <title>Attributes</title>
        <link rel="stylesheet" href="/public/app/views/attributes.css">
-       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     </head>
     <body>
         <div id="header" class="navbar navbar-default navbar-fixed-top">
-            <nav class="collapse navbar-collapse pull-left">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Back to Character Sheet</a>
-            </div>
-            </nav>
-        </div>
-    <div class="headingContainer">
-        <div>
-            <h3 class="desc">Ability Scores and Skills</h3>
-        </div>
+    <nav class="collapse navbar-collapse pull-left">
+      <a class="navbar-brand" href="/{{ sheet.charData.data._id }}">Back to Character Sheet</a>
+    </nav>
+</div>
+<div class="headingContainer">
+  <div>
+      <h3 class="desc">Ability Scores and Skills</h3>
+  </div>
   <div style="padding-right:50px; size:100%;">
   <div>
     <p1 class="legend pull-left" style="padding-left: 175px">Score </p1>

@@ -9,6 +9,8 @@ angular.module('charCtrl', ['charService'])
 
         vm.characters = data;
 
+        console.log(vm.characters);
+
       })
       .catch(function(data) {
         vm.error = data.message;
@@ -49,7 +51,6 @@ angular.module('charCtrl', ['charService'])
     Character.get($routeParams.char_id)
       .then(function(data) {
         vm.charData = data;
-        console.log(vm.charData);
       })
       .catch(function(data) {
         vm.error = data.message;

@@ -53,6 +53,11 @@ angular.module('attrCtrl', ['attrService'])
         });
     };
 
+    // vm.filterFunc = function(element) {
+    //   console.log(element);
+    //   return element.type.match("action") ? true : false;
+    // };
+
 
   });
 

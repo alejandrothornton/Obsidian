@@ -30,6 +30,36 @@ angular.module('app.route', ['ngRoute'])
       templateUrl : 'public/app/views/search.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
+    })
+
+    .when('/:char_id/class', {
+      templateUrl : 'public/app/views/search.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
+    })
+
+    .when('/:char_id/traits', {
+      templateUrl : 'public/app/views/search.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
+    })
+
+    .when('/:char_id/spells', {
+      templateUrl : 'public/app/views/search.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
+    })
+
+    .when('/:char_id/reactions', {
+      templateUrl : 'public/app/views/search.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
+    })
+
+    .when('/:char_id/legactions', {
+      templateUrl : 'public/app/views/search.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
     });
 
   $locationProvider.html5Mode(true);
