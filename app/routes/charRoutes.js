@@ -25,7 +25,7 @@ exports.create = function(req, res) {
     if(err) res.send(err);
 
     //return a message
-    res.json({ message: 'Character created!'});
+    res.json({ _id: char._id, message: 'Character created!'});
   });
 };
 

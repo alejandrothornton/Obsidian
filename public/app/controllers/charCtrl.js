@@ -1,13 +1,15 @@
 angular.module('charCtrl', ['charService'])
 
-  .controller('charController', function(Character) {
+  .controller('charController', function($scope, Character) {
 
     var vm = this;
+    vm.created = false;
 
     Character.all()
       .then(function(data) {
 
         vm.characters = data;
+        vm.created = false;
 
         console.log(vm.characters);
 
@@ -20,9 +22,15 @@ angular.module('charCtrl', ['charService'])
       vm.message = '';
 
       Character.create(vm.charData)
-        .success(function(data) {
+        .then(function(data) {
           vm.charData = {};
+          vm.created = true;
+          vm.newID = data.data._id;
           vm.message = data.message;
+          console.log(vm.newID);
+        })
+        .catch(function(data) {
+          vm.error = data.message;
         });
     };
 
@@ -48,6 +56,8 @@ angular.module('charCtrl', ['charService'])
 
     var vm = this;
 
+    vm.saved = false;
+
     Character.get($routeParams.char_id)
       .then(function(data) {
         vm.charData = data;
@@ -63,9 +73,13 @@ angular.module('charCtrl', ['charService'])
       vm.message = '';
 
       Character.update($routeParams.char_id, vm.charData)
-        .success(function(data) {
-          vm.charData = {};
+        .then(function(data) {
+          //vm.charData = {};
           vm.message = data.message;
+          vm.saved = true;
+        })
+        .catch(function(data) {
+          vm.error = data.message;
         });
     };
 

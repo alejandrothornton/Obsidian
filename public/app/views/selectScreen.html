@@ -3,11 +3,7 @@
         <meta charset="UTF-8">
       <title>Select Screen</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="selectScreen.css">
-       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-       <script language="JavaScript" type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
-       <script language="JavaScript" type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-       <script language="JavaScript" type="text/javascript" src="node_modules/bootstrap/js/carousel.js"></script>
+       <link rel="stylesheet" href="/public/app/views/selectScreen.css">
     </head>
     <body>
       <div class="navbar-wrapper">
@@ -17,14 +13,15 @@
                 <a class="navbar-brand pull-left" href="/">Obsidian</a>
               </div>
               <div class="navbar-header pull-right">
-                <a class="navbar-brand pull-right" href="/">+Create New Character Sheet</a>
+                <a class="navbar-brand pull-right" ng-if="!char.created" ng-click="char.createCharacter()">+Create New Character Sheet</a>
+                <a class="navbar-brand pull-right" ng-if="char.created" href="/{{char.newID}}">Enter New Character Sheet</a>
               </div>
           </div>
         </div><!-- /container -->
       </div><!-- /navbar wrapper -->
-       
+
         <h3 class="notifier">Character Select</h3>
-        <table class="table" style="width:1140px;">
+        <table class="table" style="width:1140px;" ng-show="char.characters">
             <thead>
                 <tr>
                     <th>Character</th>
@@ -33,10 +30,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>Barbara</th>
-                    <th>Amazonian</th>
-                    <th>Horde</th>
+                <tr ng-repeat="sheet in char.characters.data">
+                    <th>{{ sheet.name }}</th>
+                    <th>{{ sheet.race }}</th>
+                    <th>{{ sheet.alignment }}</th>
                     <th>
                         <a class="btn btn-lg btn-primary" href="/{{ sheet._id }}">Select</a>
                     </th>
