@@ -26,38 +26,44 @@ angular.module('app.route', ['ngRoute'])
       controllerAs : 'sheet'
     })
 
+    .when('/:char_id/properties', {
+      templateUrl : 'public/app/views/propertiesV2.html',
+      controller : 'sheetController',
+      controllerAs : 'sheet'
+    })
+
     .when('/:char_id/actions', {
-      templateUrl : 'public/app/views/search.html',
+      templateUrl : 'public/app/views/actions.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
     })
 
     .when('/:char_id/class', {
-      templateUrl : 'public/app/views/search.html',
+      templateUrl : 'public/app/views/class.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
     })
 
     .when('/:char_id/traits', {
-      templateUrl : 'public/app/views/search.html',
+      templateUrl : 'public/app/views/traits.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
     })
 
     .when('/:char_id/spells', {
-      templateUrl : 'public/app/views/search.html',
+      templateUrl : 'public/app/views/spells.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
     })
 
     .when('/:char_id/reactions', {
-      templateUrl : 'public/app/views/search.html',
+      templateUrl : 'public/app/views/reactions.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
     })
 
     .when('/:char_id/legactions', {
-      templateUrl : 'public/app/views/search.html',
+      templateUrl : 'public/app/views/legactions.html',
       controller : 'sheetController',
       controllerAs : 'sheet'
     });

@@ -135,7 +135,12 @@ body {
 
 #togA{
   width: 5em;
-    
+
+}
+
+#saveButton{
+  padding-right: 100px;
+  padding-top: 10px;
 }
 
 .legend{

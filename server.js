@@ -25,6 +25,8 @@ app.use(function(req, res, next) {
 //log all requests to the console
 app.use(morgan('dev'));
 
+mongoose.Promise = global.Promise;
+
 //connect to our database (mlab)
 mongoose.connect(config.database);
 

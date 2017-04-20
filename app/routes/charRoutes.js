@@ -1,13 +1,14 @@
 var Character = require('mongoose').model('Character');
+var Attribute = require('mongoose').model('Attribute');
 
 exports.create = function(req, res) {
 
   //INITIALIZING CHARACTER
   var char = new Character();
-  char.name = "[Name]";
-  char.race = "[Race]";
-  char.alignment = "[Alignment]";
-  char.size = "[Size]";
+  char.name = "Name";
+  char.race = "Race";
+  char.alignment = "Alignment";
+  char.size = "Size";
   char.str = 10;
   char.dex = 10;
   char.con = 10;
@@ -20,6 +21,14 @@ exports.create = function(req, res) {
   char.intmod = 0;
   char.wismod = 0;
   char.chamod = 0;
+  char.lairact = "";
+  char.laireff = "";
+  char.lairdesc = "";
+  char.proficiency = 0;
+  char.immunities = "";
+  char.senses = "";
+  char.languages = "";
+  char.challenge = "";
 
   char.save(function(err) {
     if(err) res.send(err);
@@ -51,6 +60,9 @@ exports.modify = function(req, res) {
 
     if(err) res.send(err);
 
+    console.log(req.body);
+    console.log(err);
+
     // set the new character information if it exists in the request
     if (req.body.name) char.name = req.body.name;
     if (req.body.race) char.race = req.body.race;
@@ -68,14 +80,28 @@ exports.modify = function(req, res) {
     if (req.body.intmod) char.intmod = req.body.intmod;
     if (req.body.wismod) char.wismod = req.body.wismod;
     if (req.body.chamod) char.chamod = req.body.chamod;
+    if (req.body.lairact) char.lairact = req.body.lairact;
+    if (req.body.laireff) char.laireff = req.body.laireff;
+    if (req.body.proficiency) char.proficiency = req.body.proficiency;
+    if (req.body.immunities) char.immunities = req.body.immunities;
+    if (req.body.senses) char.senses = req.body.senses;
+    if (req.body.languages) char.languages = req.body.languages;
+    if (req.body.challenge) char.challenge = req.body.challenge;
+    if (req.body.lairdesc) char.lairdesc = req.body.lairdesc;
+    if (req.body.traits) char.traits = req.body.traits;
+    if (req.body.actions) char.actions = req.body.actions;
+    if (req.body.clfeatures) char.clfeatures = req.body.clfeatures;
+    if (req.body.spells) char.spells = req.body.spells;
+    if (req.body.reactions) char.reactions = req.body.reactions;
 
     // save the character
     char.save(function(err) {
       if (err) res.send(err);
 
+      console.log(err);
+
       // return a message
       res.json({ message: 'Character updated!' });
-      console.log("Character updated!");
     });
   });
 };

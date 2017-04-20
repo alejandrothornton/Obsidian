@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Actions List</title>
+        <link rel="stylesheet" href="/public/app/views/search.css">
+    </head>
+    <body>
+       <div class="container-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/{{ sheet.charData.data._id }}">Back To Character Sheet</a>
+    </div>
+  </div>
+</div>
+<h3></h3>
+
+<div class="container-fluid">
+  <div class="navbar-header-new">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+      <span class="icon-bar-right"></span>
+    </button>
+    <a class="text-right creator" href="#">+Create A New Action</a>
+  </div>
+</div>
+
+<div class="container" ng-controller="actController as act">
+  <div class="text-center">
+      <h4>Actions</h4>
+  </div>
+  <form>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-addon glyphicon glyphicon-search"></span>
+    </div>
+  </form>
+  <ul class="list-unstyled">
+      <li ng-repeat="item in act.attributes.data | orderBy: 'name' ">
+      <label class="customLabel" id="{{item._id}}"><a href="" data-toggle="modal" data-target="#{{item.name}}">{{item.name}} - {{item.description}}</a></label>
+      <div class="pull-right actions">
+        <a href="" class="select-choice" data-toggle="modal" data-target="#deleteModal">Add to Sheet</a>
+        <a href="" class="edit-choice" data-toggle="modal" data-target="#deleteModal">Modify</a>
+      </div>
+
+      <div id="{{item.name}}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title">{{item.name}} Details</h4>
+            </div>
+            <div class="modal-body">
+              <div class="modalMsg"><p>id: {{item._id}} - {{item.description}}</p></div>
+              <div class="actionsBtns">
+                <button class="btn btn-default" data-dismiss="modal">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--/modal-->
+    </li>
+  </ul>
+
+
+
+  <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+        </div>
+        <div class="modal-body">
+          <div class="modalMsg"><p>Are you sure want to remove item {{item.name}}?</p></div>
+          <div class="actionsBtns">
+            <button class="btn btn-default" ng-click="deleteItem()" data-dismiss="modal">Yes</button>
+            <button class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/modal-->
+</div>
+</div><!--/container-->
+    </body>
+</html>

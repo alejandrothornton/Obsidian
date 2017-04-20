@@ -58,9 +58,9 @@ module.exports = function(app, express) {
 
     .delete(attrRoutes.expunge);
 
-  // apiRouter.route('/attributes/list/:type')
-  //
-  //   .get(attrRoutes.listByType);
+  apiRouter.route('/attributes/list/:type')
+
+    .get(attrRoutes.listByType);
 
   return apiRouter;
 };

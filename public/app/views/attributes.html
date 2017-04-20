@@ -4,19 +4,30 @@
        <link rel="stylesheet" href="/public/app/views/attributes.css">
     </head>
     <body>
+        <form class="form-horizontal" ng-submit="sheet.saveCharacter()">
         <div id="header" class="navbar navbar-default navbar-fixed-top">
     <nav class="collapse navbar-collapse pull-left">
       <a class="navbar-brand" href="/{{ sheet.charData.data._id }}">Back to Character Sheet</a>
     </nav>
+    <nav id="saveButton" class="nav navbar-nav navbar-right">
+      <div class="form-group"> <button type="submit" class="btn btn-success"> Save </button> </div>
+    <nav class="collapse navbar-collapse pull-left">
 </div>
+
+<div class="row show-hide-message" ng-show="sheet.message">
+    <div class="alert alert-info">
+      {{ sheet.message }}
+    </div>
+</div>
+
 <div class="headingContainer">
   <div>
       <h3 class="desc">Ability Scores and Skills</h3>
   </div>
   <div style="padding-right:50px; size:100%;">
   <div>
-    <p1 class="legend pull-left" style="padding-left: 175px">Score </p1>
-    <p1 class="legend pull-left" style="padding-left: 60px">Mod. </p1>
+    <p1 class="legend pull-left" style="padding-left: 145px">Score </p1>
+    <p1 class="legend pull-left" style="padding-left: 50px">Mod. </p1>
     <p1 class="legend pull-left" style="padding-left: 55px">Prof. </p1>
     <p1 class="legend pull-left" style="padding-left: 35px">Save </p1>
     <p2 class="legend pull-right" style="padding-right: 155px">Display </p2>
@@ -25,18 +36,19 @@
     <p2 class="legend pull-right" style="padding-right: 55px">Prof. </p2>
   </div>
     </div>
+
   <div class="container row">
+    <div class="form-group">
     <div class="panel panel-default pull-left">
           <div class="panel-body col">
           <p1 class="liner" id="togA">Strength: </p1>
-          <input id="chain" type="button" value="-">
-          <input id="chain" type="text" class="liner"  placeholder="{{ sheet.charData.data.str }}" style="width: 42px;"/>
-          <input id="chain" type="button" value="+">
+          <input id="chain" type="number" class="liner" ng-model="sheet.charData.data.str" placeholder="{{ sheet.charData.data.str }}" style="width: 42px;">
           <p2 class="liner" id="togA">{{ sheet.charData.data.strmod }} </p2>
           <input class="liner" id="togA" type="checkbox">
           <p2 class="liner">+3 </p2>
           </div>
     </div>
+  </div>
     <div class="panel panel-default pull-right">
           <div class="panel-body col">
             <p1 class="liner2" id="tog">Athletics: </p1>
@@ -49,17 +61,17 @@
     </div>
   </div>
   <div class="container row">
+    <div class="form-group">
     <div class="panel panel-default pull-left">
           <div class="panel-body col">
           <p1 class="liner" id="togA">Dexterity: </p1>
-          <input id="chain" type="button" value="-">
-          <input id="chain" type="text" class="liner"  placeholder="{{ sheet.charData.data.dex }}" style="width: 42px;"/>
-          <input id="chain" type="button" value="+">
+          <input id="chain" type="number" class="liner" ng-model="sheet.charData.data.dex"  placeholder="{{ sheet.charData.data.dex }}" style="width: 42px;"/>
           <p2 class="liner" id="togA">{{ sheet.charData.data.dexmod }} </p2>
           <input class="liner" id="togA" type="checkbox">
           <p2 class="liner" id="togA">+3 </p2>
           </div>
     </div>
+  </div>
     <div class="panel panel-default pull-right">
           <div class="panel-body col">
             <p class="liner2" id="tog" >Acrobatics: </p>
@@ -85,32 +97,32 @@
     </div>
   </div>
   <div class="container row">
+    <div class="form-group">
     <div class="panel panel-default pull-left">
           <div class="panel-body col">
           <p1 class="liner" id="togA">Constitution: </p1>
-          <input id="chain" type="button" value="-">
-          <input id="chain" type="text" class="liner"  placeholder="{{ sheet.charData.data.con }}" style="width: 42px;"/>
-          <input id="chain" type="button" value="+">
+          <input id="chain" type="number" class="liner" ng-model="sheet.charData.data.con"  placeholder="{{ sheet.charData.data.con }}" style="width: 42px;"/>
           <p2 class="liner" id="togA">{{ sheet.charData.data.conmod }} </p2>
           <input class="liner" id="togA" type="checkbox">
           <p2 class="liner" id="togA">+3 </p2>
           </div>
+    </div>
     </div>
     <div class="panel panel-default pull-right">
       <div class="panel-body col"></div>
     </div>
   </div>
   <div class="container row">
+    <div class="form-group">
     <div class="panel panel-default pull-left">
           <div class="panel-body col">
           <p1 class="liner" id="togA" >Intelligence: </p1>
-              <input id="chain" type="button" value="-">
-              <input id="chain" type="text" class="liner"  placeholder="{{ sheet.charData.data.int }}" style="width: 42px;"/>
-              <input id="chain" type="button" value="+">
+              <input id="chain" type="number" class="liner" ng-model="sheet.charData.data.int"  placeholder="{{ sheet.charData.data.int }}" style="width: 42px;"/>
           <p2 class="liner"id="togA" >{{ sheet.charData.data.intmod }} </p2>
           <input class="liner" id="togA" type="checkbox">
           <p2 class="liner" id="togA">+3 </p2>
           </div>
+    </div>
     </div>
     <div class="panel panel-default pull-right">
           <div class="panel-body col">
@@ -151,17 +163,17 @@
     </div>
   </div>
   <div class="container row">
+    <div class="form-group">
     <div class="panel panel-default pull-left">
           <div class="panel-body col">
           <p1 class="liner" id="togA">Wisdom: </p1>
-          <input id="chain" type="button" value="-">
-          <input id="chain" type="text" class="liner"  placeholder="{{ sheet.charData.data.wis }}" style="width: 42px;"/>
-          <input id="chain" type="button" value="+">
+          <input id="chain" type="number" class="liner" ng-model="sheet.charData.data.wis"  placeholder="{{ sheet.charData.data.wis }}" style="width: 42px;"/>
           <p2 class="liner" id="togA">{{sheet.charData.data.wismod }}</p2>
           <input class="liner" id="togA" type="checkbox">
           <p2 class="liner" id="togA">+3 </p2>
           </div>
     </div>
+  </div>
     <div class="panel panel-default pull-right">
           <div class="panel-body col">
             <p1 class="liner2" id="tog">Animal Handling: </p1>
@@ -201,17 +213,17 @@
     </div>
   </div>
   <div class="container row">
+        <div class="form-group">
     <div class="panel panel-default pull-left">
           <div class="panel-body col">
           <p1 class="liner" id="togA">Charisma: </p1>
-          <input id="chain" type="button" value="-">
-          <input id="chain" type="text" class="liner"  placeholder="{{ sheet.charData.data.cha }}" style="width: 42px;"/>
-          <input id="chain" type="button" value="+">
+          <input id="chain" type="number" class="liner" ng-model="sheet.charData.data.cha"  placeholder="{{ sheet.charData.data.cha }}" style="width: 42px;"/>
           <p2 class="liner" id="togA">{{sheet.charData.data.chamod }}</p2>
           <input class="liner" id="togA" type="checkbox">
           <p2 class="liner" id="togA">+3 </p2>
           </div>
     </div>
+  </div>
     <div class="panel panel-default pull-right">
           <div class="panel-body col">
             <p1 class="liner2" id="tog">Deception: </p1>
@@ -243,6 +255,8 @@
           </div>
     </div>
   </div>
+
 </div>
+</form>
     </body>
 </html>

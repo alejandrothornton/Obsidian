@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Class Feature Search Page</title>
+        <link rel="stylesheet" href="search.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body>
+       <div class="container-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/{{ sheet.charData.data._id }}">Back To Character Sheet</a>
+    </div>
+  </div>
+</div>
+<h3></h3>
+
+<div class="container-fluid">
+  <div class="navbar-header-new">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+      <span class="icon-bar-right"></span>
+    </button>
+    <a class="text-right creator" href="#">+Create A New Class Feature</a>
+  </div>
+</div>
+
+<div class="container" ng-controller="attrController as attr">
+  <div class="text-center">
+      <h4>Class Features</h4>
+  </div>
+  <form>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-addon glyphicon glyphicon-search"></span>
+    </div>
+  </form>
+  <ul class="list-unstyled">
+      <li ng-repeat="item in attr.attributes.data">
+      <label class="customLabel" id="{{item._id}}"><a href="" data-toggle="modal" data-target="#detailsModal">{{item.name}} - {{item.description}}</a></label>
+      <div class="pull-right actions">
+        <a href="" class="select-choice" data-toggle="modal" data-target="#deleteModal">Add To Sheet</a>
+        <a href="" class="edit-choice" data-toggle="modal" data-target="#deleteModal">Edit</a>
+      </div>
+    </li>
+  </ul>
+
+  <div id="detailsModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title">{{data[selectedItem].title}} Details</h4>
+        </div>
+        <div class="modal-body">
+          <div class="modalMsg"><p>id:{{data[selectedItem].id}} - {{data[selectedItem].desc}}</p></div>
+          <div class="actionsBtns">
+            <button class="btn btn-default" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/modal-->
+
+  <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Confirm</h4>
+        </div>
+        <div class="modal-body">
+          <div class="modalMsg"><p>Are you sure want to remove item #{{selectedItem+1}}?</p></div>
+          <div class="actionsBtns">
+            <button class="btn btn-default" ng-click="deleteItem()" data-dismiss="modal">Yes</button>
+            <button class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/modal-->
+</div>
+</div><!--/container-->
+    </body>
+</html>

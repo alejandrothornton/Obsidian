@@ -23,14 +23,13 @@ exports.list = function(req, res) {
   });
 };
 
-// exports.listByType = function(req, res, $filter) {
-//   Attribute.find(req.params.type, function(err, attrs) {
-//     if(err) res.send(err);
-//
-//     attrs = $filter('filter')(attrs, {type: req.params.type}, true);
-//     res.json(attrs);
-//   });
-// };
+exports.listByType = function(req, res) {
+  Attribute.find({ type: req.params.type}, function(err, attrs) {
+    if(err) res.send(err);
+
+    res.json(attrs);
+  });
+};
 
 exports.retrieve = function(req, res) {
   Attribute.findById(req.params.attr_id, function(err, attr) {

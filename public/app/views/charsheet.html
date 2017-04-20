@@ -54,13 +54,14 @@
                 </ul>
             </div>
         </div>
-        <div id="main-wrapper" class="col-md-9 pull-right">
+        <div id="main-wrapper" class="col-md-9 pull-left">
             <div id="main">
               <div class="page-header">
                 <h3>{{ sheet.charData.data.name }}</h3>
                 {{ sheet.charData.data.size }} {{ sheet.charData.data.race }} - {{ sheet.charData.data.alignment }}
               </div>
-              <table class="table">
+              <div class="table-responsive col-md-6">
+              <table class="table col-md-4 pull-left">
 				<thead>
                   <tr>
                     <th>Ability Score
@@ -104,35 +105,95 @@
                   </tr>
                 </tbody>
 			</table>
-              <table class="table">
+    </div>
+    <div class="table-responsive col-md-6">
+              <table class="table col-md-4 pull-right">
 				<thead>
                   <tr>
-                    <th>Saving Throws
-                    </th>
+                    <td>Saving Throws: </td>
                   </tr>
                 </thead>
 				<tbody>
+          <tr>
+            <td>Proficiency: {{ sheet.charData.data.proficiency }}</td>
+          </tr>
                   <tr>
-                    <td>Skills:</td>
+                    <td>Skills: </td>
                   </tr>
                   <tr>
-                    <td>Immunities:</td>
+                    <td>Immunities: {{ sheet.charData.data.immunities }}</td>
                   </tr>
                   <tr>
-                    <td>Senses:</td>
+                    <td>Senses: {{ sheet.charData.data.senses }}</td>
                   </tr>
                   <tr>
-                    <td>Languages:</td>
+                    <td>Languages: {{ sheet.charData.data.languages }}</td>
                   </tr>
                   <tr>
-                    <td>Challenge:</td>
+                    <td>Challenge: {{ sheet.charData.data.challenge }}</td>
                   </tr>
                 </tbody>
 			</table>
+    </div>
 
            <!-- ng-reapeat stuff should go here-->
-
             </div>
+            <div id="attribute-wrapper"> <!--The whole container is here  -->
+                    <div>  <!--Trait section is here here  -->
+                        <div>  <!--One entry is here  -->
+
+                        </div>
+                    </div>
+                    <div ng-if="sheet.charData.data.actions != undefined && sheet.charData.data.actions.length != 0">  <!--Actions section is here here  -->
+                       <h2>Actions</h2>
+                       <div>
+                           <ul class="list-unstyled" ng-init="sheet.gatherAttributes()">
+                               <li ng-repeat="item in sheet.actions track by $index">
+                               <label class="customLabel" id="{{ item.data._id }}" ng-init="sheet.logAttr(item)"></label>
+                                 <h3>{{ item.data.name }}</h3>
+                                 {{item.data.description}}
+                               <div class="pull-right actions">
+                                 <a class="btn btn-primary" ng-click="">Modify</a>
+                                 <a class="btn btn-primary" ng-click="sheet.removeAttribute($index, item.data.type)" href="/{{ sheet.charData.data._id }}">Remove</a>
+                               </div>
+                           </li>
+                          </ul>
+                       </div>
+                    </div>
+                    <div>  <!--Class Features section is here here  -->
+                       <h2>Class Features</h2>
+                        <div>  <!--One entry is here  -->
+
+                        </div>
+                    </div>
+                    <div>  <!--Spell section is here here  -->
+                       <h2>Spell</h2>
+                        <div>  <!--One entry is here  -->
+
+                        </div>
+                    </div>
+                    <div>  <!--Reactions section is here here  -->
+                       <h2>Reactions</h2>
+                        <div>  <!--One entry is here  -->
+
+
+                        </div>
+                    </div>
+                    <div>  <!--Legendary Actions section is here here  -->
+                       <h2>Legendary Actions</h2>
+                        <div>  <!--One entry is here  -->
+
+
+                        </div>
+                    </div>
+                    <div>  <!--Lair section is here here  -->
+                       <h2>Lair</h2>
+                        <div>  <!--One entry is here  -->
+
+                        </div>
+                    </div>
+
+                </div>
         </div>
 </div>
 

@@ -1,0 +1,47 @@
+<html>
+   <head>
+       <title>Properties</title>
+       <link rel="stylesheet" href="/public/app/views/properties.css">
+   </head>
+    <body>
+      <form class="form-horizontal" ng-submit="sheet.saveCharacter()">
+        <div id="header" class="navbar navbar-default navbar-fixed-top">
+            <nav class="collapse navbar-collapse pull-left" style="padding-left: 50px;">
+            <div class="navbar-header">
+                    <a class="navbar-brand" href="/{{ sheet.charData.data._id }}">Back to Character Sheet</a>
+                </div>
+            </nav>
+            <nav id="saveButton" class="nav navbar-nav navbar-right">
+              <div class="form-group"> <button type="submit" class="btn btn-success"> Save </button> </div>
+            <nav class="collapse navbar-collapse pull-left">
+        </div>
+        <div class="container" style="padding-left: 130px;">
+          <div>
+              <h3 class="desc col-md-6" style="text-align:right; padding-left: 20px;">Properties</h3>
+          </div>
+        </div>
+        <div>
+        <div class="container">
+            <form class="navbar-form">
+              <p1 class="liner">Proficiency: <input type="number" class="form-control" ng-model="sheet.charData.data.proficiency" placeholder="{{sheet.charData.data.proficiency}}"></p1>
+            </form>
+            <form class="navbar-form">
+              <p1 class="desc-min-input">Immunities: <input type="text" class="form-control" ng-model="sheet.charData.data.immunities" placeholder="{{sheet.charData.data.immunities}}"></p1>
+            </form>
+            <form class="navbar-form">
+              <p1 class="desc-min-input">Senses: <input type="text" class="form-control" ng-model="sheet.charData.data.senses" placeholder="{{sheet.charData.data.senses}}"></p1>
+            </form>
+            <form class="navbar-form">
+              <p1 class="desc-min-input">Languages: <input type="text" class="form-control" ng-model="sheet.charData.data.languages" placeholder="{{sheet.charData.data.languages}}"></p1>
+            </form>
+            <form class="navbar-form">
+              <p1 class="desc-min-input">Challenge: <input type="text" class="form-control" ng-model="sheet.charData.data.challenge" placeholder="{{sheet.charData.data.challenge}}"></p1>
+            </form>
+            <form class="navbar-form">
+              <p1 class="desc-min-input">Size: <input type="text" class="form-control" ng-model="sheet.charData.data.size" placeholder="{{sheet.charData.data.size}}"></p1>
+            </form>
+        </div>
+        </div>
+      </form>
+    </body>
+</html>
